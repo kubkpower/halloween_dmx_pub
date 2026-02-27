@@ -1,0 +1,31 @@
+name: Update manifest checksums
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'firmware/**/*.bin'
+      - 'spiffs/**/*.bin'
+      - 'config/**/*.yaml'
+
+jobs:
+  update-checksums:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compute SHA-256 checksums and update manifests
+        run: python3 scripts/update_manifests.py
+
+      - name: Commit updated manifests
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add firmware/*.manifest.json
+          git diff --cached --quiet || git commit -m "chore: update manifest checksums [skip ci]"
+          git push

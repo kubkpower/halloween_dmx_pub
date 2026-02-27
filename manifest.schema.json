@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/manifest.schema.json",
+  "title": "ESP32 Device Manifest",
+  "description": "Schema for per-device OTA update manifests used by ESP32 firmware",
+  "type": "object",
+  "required": ["name", "chip", "version", "firmware"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Unique device-type identifier (e.g. halloween-dmx-controller)"
+    },
+    "chip": {
+      "type": "string",
+      "enum": ["esp32", "esp32s2", "esp32s3", "esp32c3", "esp32h2"],
+      "description": "ESP32 chip family"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the current release (e.g. 1.0.0)"
+    },
+    "firmware": {
+      "type": "object",
+      "required": ["url", "sha256", "size"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "description": "HTTPS URL to the firmware binary (raw.githubusercontent.com)"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hex digest of the firmware binary"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Size of the firmware binary in bytes"
+        }
+      }
+    },
+    "spiffs": {
+      "type": "object",
+      "required": ["url", "sha256", "size"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "description": "HTTPS URL to the SPIFFS/LittleFS image (raw.githubusercontent.com)"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hex digest of the SPIFFS image"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Size of the SPIFFS image in bytes"
+        }
+      }
+    },
+    "config": {
+      "type": "object",
+      "required": ["url"],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://",
+          "description": "HTTPS URL to the YAML config file (raw.githubusercontent.com)"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$",
+          "description": "SHA-256 hex digest of the config file"
+        }
+      }
+    },
+    "min_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Minimum firmware version that can update to this release (rollback protection)"
+    },
+    "release_notes": {
+      "type": "string",
+      "description": "Human-readable description of changes in this release"
+    }
+  }
+}
