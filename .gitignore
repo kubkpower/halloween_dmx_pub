@@ -1,0 +1,27 @@
+# Secrets and credentials - never commit these
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.yaml
+secrets.yml
+credentials.json
+.env
+.env.*
+
+# Local build artifacts
+build/
+dist/
+*.o
+*.elf
+
+# OS and editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.pyc

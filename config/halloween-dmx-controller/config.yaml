@@ -1,0 +1,23 @@
+# Halloween DMX Controller configuration
+# IMPORTANT: Do NOT add passwords, API keys, or other secrets to this file.
+# Secrets must be managed separately (e.g. provisioned directly on the device).
+
+device:
+  name: halloween-dmx-controller
+  friendly_name: Halloween DMX Controller
+  firmware_version: "1.0.0"
+
+# Manifest URL the device polls to check for OTA updates
+# Must be HTTPS; device firmware must trust the GitHub raw content CA certificate.
+ota:
+  manifest_url: "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/halloween-dmx-controller.manifest.json"
+  check_interval_s: 3600
+
+# DMX output settings
+dmx:
+  universe: 1
+  channels: 512
+  start_address: 1
+
+# WiFi credentials are NOT stored here - provision them via BLE/SmartConfig
+# or hardcode them in the build environment only.

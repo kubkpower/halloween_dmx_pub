@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/manifest.schema.json",
+  "name": "halloween-dmx-controller",
+  "chip": "esp32",
+  "version": "1.0.0",
+  "min_version": "1.0.0",
+  "release_notes": "Initial release",
+  "config": {
+    "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/config/halloween-dmx-controller/config.yaml",
+    "sha256": "03cd2dc7ab071ec464813f9d5ec347245299fe37aacc5a72d1689339951f3212"
+  }
+}
