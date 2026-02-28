@@ -1,0 +1,679 @@
+schema_version: 2
+manufacturer: BeamZ
+model: BS336
+category: LED_BAR
+
+notes: "BeamZ BS336 RGBW LED bar, 8 pixel segments, 5 DMX modes (4ch/6ch/12ch/24ch/30ch)"
+
+physical:
+  beam_type: wash
+  beam_angle: 120
+  power_w: 120
+  weight_kg: 1.8
+  connector: xlr3
+
+modes:
+
+  # ============================================================
+  # 4 CHANNELS — CH1 R, CH2 G, CH3 B, CH4 W
+  # ============================================================
+  - name: "4ch"
+    channel_count: 4
+    parameters:
+
+      - id: red
+        label: Red
+        type: range
+        attribute: ColorAdd_R
+        group: Color
+        dmx_offset: 0       # DMX ch 1
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: green
+        label: Green
+        type: range
+        group: Color
+        dmx_offset: 1       # DMX ch 2
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: blue
+        label: Blue
+        type: range
+        group: Color
+        dmx_offset: 2       # DMX ch 3
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: white
+        label: White
+        type: range
+        group: Color
+        dmx_offset: 3       # DMX ch 4
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+  # ============================================================
+  # 6 CHANNELS — CH1 Dimmer, CH2 Strobe, CH3 R, CH4 G, CH5 B, CH6 W
+  # ============================================================
+  - name: "6ch"
+    channel_count: 6
+    parameters:
+
+      - id: dimmer
+        label: Total Dimmer
+        type: range
+        attribute: Dimmer
+        group: Intensity
+        dmx_offset: 0       # DMX ch 1
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: strobe
+        label: Total Strobe
+        type: range
+        attribute: Shutter1
+        group: Beam
+        dmx_offset: 1       # DMX ch 2
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: Open
+            dmx_min: 0
+            dmx_max: 9
+          - name: "Slow -> Fast"
+            dmx_min: 10
+            dmx_max: 255
+
+      - id: red
+        label: Red
+        type: range
+        attribute: ColorAdd_R
+        group: Color
+        dmx_offset: 2       # DMX ch 3
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: green
+        label: Green
+        type: range
+        group: Color
+        dmx_offset: 3       # DMX ch 4
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: blue
+        label: Blue
+        type: range
+        group: Color
+        dmx_offset: 4       # DMX ch 5
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: white
+        label: White
+        type: range
+        group: Color
+        dmx_offset: 5       # DMX ch 6
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+  # ============================================================
+  # 24 CHANNELS — Pixel RGB: R1,G1,B1 ... R8,G8,B8
+  # ============================================================
+  - name: "24ch"
+    channel_count: 24
+    parameters:
+
+      # Segment 1
+      - { id: r1, label: "R1", type: range, group: "Pixels1", dmx_offset: 0,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g1, label: "G1", type: range, group: "Pixels1", dmx_offset: 1,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b1, label: "B1", type: range, group: "Pixels1", dmx_offset: 2,  range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # Segment 2
+      - { id: r2, label: "R2", type: range, group: "Pixels2", dmx_offset: 3,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g2, label: "G2", type: range, group: "Pixels2", dmx_offset: 4,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b2, label: "B2", type: range, group: "Pixels2", dmx_offset: 5,  range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # Segment 3
+      - { id: r3, label: "R3", type: range, group: "Pixels3", dmx_offset: 6,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g3, label: "G3", type: range, group: "Pixels3", dmx_offset: 7,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b3, label: "B3", type: range, group: "Pixels3", dmx_offset: 8,  range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # Segment 4
+      - { id: r4, label: "R4", type: range, group: "Pixels4", dmx_offset: 9,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g4, label: "G4", type: range, group: "Pixels4", dmx_offset: 10, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b4, label: "B4", type: range, group: "Pixels4", dmx_offset: 11, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # Segment 5
+      - { id: r5, label: "R5", type: range, group: "Pixels5", dmx_offset: 12, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g5, label: "G5", type: range, group: "Pixels5", dmx_offset: 13, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b5, label: "B5", type: range, group: "Pixels5", dmx_offset: 14, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # Segment 6
+      - { id: r6, label: "R6", type: range, group: "Pixels6", dmx_offset: 15, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g6, label: "G6", type: range, group: "Pixels6", dmx_offset: 16, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b6, label: "B6", type: range, group: "Pixels6", dmx_offset: 17, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # Segment 7
+      - { id: r7, label: "R7", type: range, group: "Pixels7", dmx_offset: 18, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g7, label: "G7", type: range, group: "Pixels7", dmx_offset: 19, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b7, label: "B7", type: range, group: "Pixels7", dmx_offset: 20, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # Segment 8
+      - { id: r8, label: "R8", type: range, group: "Pixels8", dmx_offset: 21, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g8, label: "G8", type: range, group: "Pixels8", dmx_offset: 22, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b8, label: "B8", type: range, group: "Pixels8", dmx_offset: 23, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+  # ============================================================
+  # 12 CHANNELS — CH1 Dimmer, CH2 RGB Strobe, CH3 Color FX, CH4 FX Speed,
+  #               CH5 Color Select, CH6 W Strobe, CH7 White FX, CH8 W Speed,
+  #               CH9 R, CH10 G, CH11 B, CH12 W
+  # ============================================================
+  - name: "12ch"
+    channel_count: 12
+    parameters:
+
+      - id: dimmer
+        label: Total Dimmer
+        type: range
+        attribute: Dimmer
+        group: Intensity
+        dmx_offset: 0       # DMX ch 1
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: rgb_strobe
+        label: RGB Strobe
+        type: range
+        attribute: Shutter1
+        group: Intensity
+        dmx_offset: 1       # DMX ch 2
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: "No function"
+            dmx_min: 0
+            dmx_max: 4
+          - name: "Slow -> Fast"
+            dmx_min: 5
+            dmx_max: 255
+
+      - id: color_effects
+        label: Color Effects
+        type: enum
+        attribute: Effects
+        snap: true
+        group: Effects
+        dmx_offset: 2       # DMX ch 3
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: "Perform CH9-12 RGBW Dimming"
+            dmx_min: 0
+            dmx_max: 5
+          - name: "Static Color"
+            dmx_min: 6
+            dmx_max: 10
+          - name: "Breathing Effect (CH5 Color)"
+            dmx_min: 11
+            dmx_max: 15
+          - name: "Jump Change Effect"
+            dmx_min: 16
+            dmx_max: 20
+          - name: "Gradient Change Effect"
+            dmx_min: 21
+            dmx_max: 25
+          - name: "Pulse Change Effect (CH5 Color)"
+            dmx_min: 26
+            dmx_max: 30
+          - name: "Auto-Run Effect 1 (CH5 Color)"
+            dmx_min: 31
+            dmx_max: 40
+          - name: "Auto-Run Effect 2 (CH5 Color)"
+            dmx_min: 41
+            dmx_max: 50
+          - name: "Auto-Run Effect 3 (CH5 Color)"
+            dmx_min: 51
+            dmx_max: 60
+          - name: "Auto-Run Effect 4 (CH5 Color)"
+            dmx_min: 61
+            dmx_max: 70
+          - name: "Auto-Run Effect 5 (CH5 Color)"
+            dmx_min: 71
+            dmx_max: 80
+          - name: "Auto-Run Effect 6 (CH5 Color)"
+            dmx_min: 81
+            dmx_max: 90
+          - name: "Auto-Run Effect 7 (CH5 Color)"
+            dmx_min: 91
+            dmx_max: 100
+          - name: "Auto-Run Effect 8 (CH5 Color)"
+            dmx_min: 101
+            dmx_max: 110
+          - name: "Auto-Run Effect 9 (CH5 Color)"
+            dmx_min: 111
+            dmx_max: 120
+          - name: "Auto-Run Effect 10 (CH5 Color)"
+            dmx_min: 121
+            dmx_max: 130
+          - name: "Auto-Run Effect 11 (CH5 Color)"
+            dmx_min: 131
+            dmx_max: 140
+          - name: "Auto-Run Effect 12 (CH5 Color)"
+            dmx_min: 141
+            dmx_max: 150
+          - name: "Auto-Run Effect 13 (CH5 Color)"
+            dmx_min: 151
+            dmx_max: 160
+          - name: "Auto-Run Effect 14 (CH5 Color)"
+            dmx_min: 161
+            dmx_max: 170
+          - name: "Auto-Run Effect 15 (CH5 Color)"
+            dmx_min: 171
+            dmx_max: 180
+          - name: "Auto-Run Effect 16 (CH5 Color)"
+            dmx_min: 181
+            dmx_max: 190
+          - name: "Auto-Run Effect 17 (CH5 Color)"
+            dmx_min: 191
+            dmx_max: 200
+          - name: "Auto-Run Effect 18 (CH5 Color)"
+            dmx_min: 201
+            dmx_max: 210
+          - name: "Auto-Run Effect 19 (CH5 Color)"
+            dmx_min: 211
+            dmx_max: 220
+          - name: "Auto-Run Effect 20 (CH5 Color)"
+            dmx_min: 221
+            dmx_max: 229
+          - name: "Sound Mode 1 (CH5 Color)"
+            dmx_min: 230
+            dmx_max: 239
+          - name: "Sound Mode 2 (CH5 Color)"
+            dmx_min: 240
+            dmx_max: 249
+          - name: "Sound Mode 3 (CH5 Color)"
+            dmx_min: 250
+            dmx_max: 255
+      
+      - id: color_effects_adjust
+        label: "FX Speed / Sound Sensitivity"
+        type: range
+        group: Effects
+        dmx_offset: 3      # DMX ch 4
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+      
+      - id: defined_color
+        label: Simple Colors (CH3 Manual Mode)
+        type: enum
+        attribute: ColorAddPreset
+        snap: true
+        group: Colors
+        dmx_offset: 4      # DMX ch 5
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: "Default Color"
+            dmx_min: 0
+            dmx_max: 31
+            color: "#FFFFFF"
+          - name: "Red"
+            dmx_min: 32
+            dmx_max: 63
+            color: "#FF0000"
+          - name: "Green"
+            dmx_min: 64
+            dmx_max: 95
+            color: "#00FF00"
+          - name: "Blue"
+            dmx_min: 96
+            dmx_max: 127
+            color: "#0000FF"
+          - name: "Yellow"
+            dmx_min: 128
+            dmx_max: 159
+            color: "#FFFF00"
+          - name: "Purple"
+            dmx_min: 160
+            dmx_max: 191
+            color: "#800080"
+          - name: "Cyan"
+            dmx_min: 192
+            dmx_max: 223
+            color: "#00FFFF"
+          - name: "White"
+            dmx_min: 224
+            dmx_max: 255
+            color: "#FFFFFF"
+      
+      - id: w_strobe
+        label: White Strobe
+        type: range
+        attribute: Strobe
+        group: Intensity
+        dmx_offset: 5       # DMX ch 6
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: "No function"
+            dmx_min: 0
+            dmx_max: 4
+          - name: "Slow -> Fast"
+            dmx_min: 5
+            dmx_max: 255
+    
+      - id: white_effects
+        label: White Effects
+        type: enum
+        attribute: white_effects
+        snap: true
+        group: Effects
+        dmx_offset: 6       # DMX ch 7
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: "Perform CH12 W Dimming"
+            dmx_min: 0
+            dmx_max: 5
+          - name: "White Effect 1 (cycle)"
+            dmx_min: 6
+            dmx_max: 10
+          - name: "White Effect 2 (static)"
+            dmx_min: 11
+            dmx_max: 15
+          - name: "White Effect 3"
+            dmx_min: 16
+            dmx_max: 20
+          - name: "White Effect 4"
+            dmx_min: 21
+            dmx_max: 25
+          - name: "White Effect 5"
+            dmx_min: 26
+            dmx_max: 30
+          - name: "White Effect 6"
+            dmx_min: 31
+            dmx_max: 35
+          - name: "White Effect 7"
+            dmx_min: 36
+            dmx_max: 40
+          - name: "White Effect 8"
+            dmx_min: 41
+            dmx_max: 45
+          - name: "White Effect 9"
+            dmx_min: 46
+            dmx_max: 50
+          - name: "White Effect 10"
+            dmx_min: 51
+            dmx_max: 55
+          - name: "White Effect 11"
+            dmx_min: 56
+            dmx_max: 60
+          - name: "White Effect 12"
+            dmx_min: 61
+            dmx_max: 65
+          - name: "White Effect 13"
+            dmx_min: 66
+            dmx_max: 70
+          - name: "White Effect 14"
+            dmx_min: 71
+            dmx_max: 75
+          - name: "White Effect 15"
+            dmx_min: 76
+            dmx_max: 80
+          - name: "White Effect 16"
+            dmx_min: 81
+            dmx_max: 85
+          - name: "White Effect 17"
+            dmx_min: 86
+            dmx_max: 90
+          - name: "White Effect 18"
+            dmx_min: 91
+            dmx_max: 95
+          - name: "White Effect 19"
+            dmx_min: 96
+            dmx_max: 100
+          - name: "White Effect 20"
+            dmx_min: 101
+            dmx_max: 105
+          - name: "White Effect 21"
+            dmx_min: 106
+            dmx_max: 110
+          - name: "White Effect 22"
+            dmx_min: 111
+            dmx_max: 115
+          - name: "White Effect 23"
+            dmx_min: 116
+            dmx_max: 120
+          - name: "White Effect 24"
+            dmx_min: 121
+            dmx_max: 125
+          - name: "White Effect 25"
+            dmx_min: 126
+            dmx_max: 130
+          - name: "White Effect 26"
+            dmx_min: 131
+            dmx_max: 135
+          - name: "White Effect 27"
+            dmx_min: 136
+            dmx_max: 140
+          - name: "White Effect 28"
+            dmx_min: 141
+            dmx_max: 145
+          - name: "White Effect 29"
+            dmx_min: 146
+            dmx_max: 150
+          - name: "White Effect 30"
+            dmx_min: 151
+            dmx_max: 155
+          - name: "White Effect 31"
+            dmx_min: 156
+            dmx_max: 160
+          - name: "White Effect 32"
+            dmx_min: 161
+            dmx_max: 165
+          - name: "White Effect 33"
+            dmx_min: 166
+            dmx_max: 170
+          - name: "White Effect 34"
+            dmx_min: 171
+            dmx_max: 175
+          - name: "White Effect 35"
+            dmx_min: 176
+            dmx_max: 180
+          - name: "White Effect 36"
+            dmx_min: 181
+            dmx_max: 185
+          - name: "White Effect 37"
+            dmx_min: 186
+            dmx_max: 190
+          - name: "White Effect 38"
+            dmx_min: 191
+            dmx_max: 195
+          - name: "White Effect 39"
+            dmx_min: 196
+            dmx_max: 200
+          - name: "White Effect 40"
+            dmx_min: 201
+            dmx_max: 205
+          - name: "White Effect 41"
+            dmx_min: 206
+            dmx_max: 210
+          - name: "White Effect 42"
+            dmx_min: 211
+            dmx_max: 215
+          - name: "White Effect 43"
+            dmx_min: 216
+            dmx_max: 220
+          - name: "White Effect 44"
+            dmx_min: 221
+            dmx_max: 225
+          - name: "White Effect 45"
+            dmx_min: 226
+            dmx_max: 255
+
+      - id: white_effects_adjust
+        label: White Effects Speed
+        type: range
+        attribute: white_effects_adjust
+        group: Effects
+        dmx_offset: 7      # DMX ch 8
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: red
+        label: Red Dimming
+        attribute: red
+        type: range
+        group: Color
+        dmx_offset: 8       # DMX ch 9
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: green
+        label: Green Dimming
+        attribute: green
+        type: range
+        group: Color
+        dmx_offset: 9       # DMX ch 10
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: blue
+        label: Blue Dimming
+        attribute: blue
+        type: range
+        group: Color
+        dmx_offset: 10       # DMX ch 11
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: white
+        label: White Dimming
+        attribute: white
+        type: range
+        group: Color
+        dmx_offset: 11       # DMX ch 12
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+  # ============================================================
+  # 30 CHANNELS — CH1 Dimmer, CH2 Strobe, CH3-26 R1..B8, CH27-30 W1..W4
+  # ============================================================
+  - name: "30ch"
+    channel_count: 30
+    parameters:
+
+      - id: dimmer
+        label: Total Dimmer
+        type: range
+        attribute: Dimmer
+        group: Intensity
+        dmx_offset: 0       # DMX ch 1
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: strobe
+        label: Total Strobe
+        type: range
+        attribute: Shutter1
+        group: Beam
+        dmx_offset: 1       # DMX ch 2
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: Open
+            dmx_min: 0
+            dmx_max: 9
+          - name: "Slow -> Fast"
+            dmx_min: 10
+            dmx_max: 255
+
+      # RGB segments (offset +2 vs 24ch mode)
+      - { id: r1, label: "R1", type: range, attribute: ColorAdd_R, group: "Pixels1", dmx_offset: 2,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g1, label: "G1", type: range, attribute: ColorAdd_G, group: "Pixels1", dmx_offset: 3,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b1, label: "B1", type: range, attribute: ColorAdd_B, group: "Pixels1", dmx_offset: 4,  range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      - { id: r2, label: "R2", type: range, attribute: ColorAdd_R, group: "Pixels2", dmx_offset: 5,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g2, label: "G2", type: range, attribute: ColorAdd_G, group: "Pixels2", dmx_offset: 6,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b2, label: "B2", type: range, attribute: ColorAdd_B, group: "Pixels2", dmx_offset: 7,  range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      - { id: r3, label: "R3", type: range, attribute: ColorAdd_R, group: "Pixels3", dmx_offset: 8,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g3, label: "G3", type: range, attribute: ColorAdd_G, group: "Pixels3", dmx_offset: 9,  range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b3, label: "B3", type: range, attribute: ColorAdd_B, group: "Pixels3", dmx_offset: 10, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      - { id: r4, label: "R4", type: range, attribute: ColorAdd_R, group: "Pixels4", dmx_offset: 11, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g4, label: "G4", type: range, attribute: ColorAdd_G, group: "Pixels4", dmx_offset: 12, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b4, label: "B4", type: range, attribute: ColorAdd_B, group: "Pixels4", dmx_offset: 13, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      - { id: r5, label: "R5", type: range, attribute: ColorAdd_R, group: "Pixels5", dmx_offset: 14, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g5, label: "G5", type: range, attribute: ColorAdd_G, group: "Pixels5", dmx_offset: 15, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b5, label: "B5", type: range, attribute: ColorAdd_B, group: "Pixels5", dmx_offset: 16, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      - { id: r6, label: "R6", type: range, attribute: ColorAdd_R, group: "Pixels6", dmx_offset: 17, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g6, label: "G6", type: range, attribute: ColorAdd_G, group: "Pixels6", dmx_offset: 18, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b6, label: "B6", type: range, attribute: ColorAdd_B, group: "Pixels6", dmx_offset: 19, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      - { id: r7, label: "R7", type: range, attribute: ColorAdd_R, group: "Pixels7", dmx_offset: 20, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g7, label: "G7", type: range, attribute: ColorAdd_G, group: "Pixels7", dmx_offset: 21, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b7, label: "B7", type: range, attribute: ColorAdd_B, group: "Pixels7", dmx_offset: 22, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      - { id: r8, label: "R8", type: range, attribute: ColorAdd_R, group: "Pixels8", dmx_offset: 23, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: g8, label: "G8", type: range, attribute: ColorAdd_G, group: "Pixels8", dmx_offset: 24, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: b8, label: "B8", type: range, attribute: ColorAdd_B, group: "Pixels8", dmx_offset: 25, range_min: 0, range_max: 255, default: 0, reserved: false }
+
+      # White segments
+      - { id: w1, label: "W1", type: range, attribute: ColorAdd_W, group: "Pixels9", dmx_offset: 26, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: w2, label: "W2", type: range, attribute: ColorAdd_W, group: "Pixels9", dmx_offset: 27, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: w3, label: "W3", type: range, attribute: ColorAdd_W, group: "Pixels9", dmx_offset: 28, range_min: 0, range_max: 255, default: 0, reserved: false }
+      - { id: w4, label: "W4", type: range, attribute: ColorAdd_W, group: "Pixels9", dmx_offset: 29, range_min: 0, range_max: 255, default: 0, reserved: false }
