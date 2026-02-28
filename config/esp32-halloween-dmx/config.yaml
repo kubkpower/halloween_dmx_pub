@@ -1,0 +1,12 @@
+﻿# Halloween DMX - Device configuration
+# Genere automatiquement par scripts/publish_to_pub.ps1
+# Ne pas inclure de secrets (WiFi, tokens...) dans ce fichier.
+
+device: esp32-halloween-dmx
+firmware_version: "1.0.0"
+built: "2026-02-28"
+notes: "Release automatique"
+
+fixture_profiles:
+  - name: beamz_bs336
+  - name: cosmos_fp1210

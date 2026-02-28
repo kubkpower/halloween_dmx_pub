@@ -1,0 +1,230 @@
+schema_version: 2
+manufacturer: Cosmos
+model: FP1210
+category: LED_PAR
+
+notes: "Cosmos LED PAR (FP1210 / FP710), 10-channel mode with RGBW + strobe + macro"
+
+physical:
+  beam_type: wash
+  beam_angle: 15
+  power_w: 12
+  connector: xlr3
+
+modes:
+  - name: "6ch"
+    channel_count: 6
+    parameters:
+
+      - id: red
+        label: Red
+        type: range
+        attribute: ColorAdd_R
+        group: Color
+        dmx_offset: 0       # DMX ch 1
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: green
+        label: Green
+        type: range
+        attribute: ColorAdd_G
+        group: Color
+        dmx_offset: 1       # DMX ch 2
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: blue
+        label: Blue
+        type: range
+        attribute: ColorAdd_B
+        group: Color
+        dmx_offset: 2       # DMX ch 3
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: white
+        label: White
+        type: range
+        attribute: ColorAdd_W
+        group: Color
+        dmx_offset: 3       # DMX ch 4
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+      
+      - id: amber
+        label: Amber
+        type: range
+        attribute: ColorAdd_A
+        group: Color
+        dmx_offset: 4       # DMX ch 5
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: uv
+        label: Ultra-Violet
+        type: range
+        attribute: ColorAdd_UV
+        group: Color
+        dmx_offset: 5       # DMX ch 6
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+  - name: "10ch"
+    channel_count: 10
+    parameters:
+
+      - id: dimmer
+        label: Master Dimmer
+        type: range
+        attribute: Dimmer
+        group: Intensity
+        dmx_offset: 0       # DMX ch 1
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: red
+        label: Red
+        type: range
+        attribute: ColorAdd_R
+        group: Color
+        dmx_offset: 1       # DMX ch 2
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: green
+        label: Green
+        type: range
+        attribute: ColorAdd_G
+        group: Color
+        dmx_offset: 2       # DMX ch 3
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: blue
+        label: Blue
+        type: range
+        attribute: ColorAdd_B
+        group: Color
+        dmx_offset: 3       # DMX ch 4
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: white
+        label: White
+        type: range
+        attribute: ColorAdd_W
+        group: Color
+        dmx_offset: 4       # DMX ch 5
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+
+      - id: strobe
+        label: Strobe
+        type: range
+        attribute: Shutter1
+        group: Intensity
+        dmx_offset: 7       # DMX ch 6
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: Open
+            dmx_min: 0
+            dmx_max: 10
+          - name: "Strobe speed"
+            dmx_min: 11
+            dmx_max: 255
+
+      - id: macro
+        label: "Macro / Program"
+        type: enum
+        attribute: Effects
+        snap: true
+        group: Effect
+        dmx_offset: 8       # DMX ch 7
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
+        capabilities:
+          - name: "Manual (CH1-6)"
+            dmx_min: 0
+            dmx_max: 9
+          - name: "Colour selection"
+            dmx_min: 10
+            dmx_max: 50
+          - name: Chase
+            dmx_min: 51
+            dmx_max: 100
+          - name: Gradient
+            dmx_min: 101
+            dmx_max: 150
+          - name: Pulse
+            dmx_min: 151
+            dmx_max: 200
+          - name: "Sound Mode 1"
+            dmx_min: 201
+            dmx_max: 220
+          - name: "Sound Mode 2"
+            dmx_min: 221
+            dmx_max: 230
+          - name: "Sound Mode 3"
+            dmx_min: 231
+            dmx_max: 240
+          - name: "Sound Mode 4"
+            dmx_min: 241
+            dmx_max: 255
+
+      - id: ch6_reserved
+        label: Reserved CH6
+        type: range
+        group: Other
+        dmx_offset: 5       # DMX ch 6
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: true      # always held at default, never exposed in UI
+
+      - id: ch7_reserved
+        label: Reserved CH7
+        type: range
+        group: Other
+        dmx_offset: 6       # DMX ch 7
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: true
+
+      - id: speed
+        label: Speed
+        type: range
+        group: Effect
+        dmx_offset: 9       # DMX ch 10
+        range_min: 0
+        range_max: 255
+        default: 0
+        reserved: false
