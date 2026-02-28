@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/manifest.schema.json",
+  "name": "esp32-halloween-dmx",
+  "chip": "esp32",
+  "version": "1.0.0",
+  "firmware": {
+    "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.0/firmware.bin",
+    "sha256": "a3d986307556816aee190abeb54eba70bfdb19bd24267a61eff73544e46143f9",
+    "size": 1537264
+  },
+  "spiffs": {
+    "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.0/spiffs.bin",
+    "sha256": "e846269cfebf3651faa0db9bea9e76133ab1c62cd533ecb6ca9d56e1f99aa60e",
+    "size": 983040
+  },
+  "config": {
+    "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/config/esp32-halloween-dmx/config.yaml",
+    "sha256": "47454e9d8b25a0946e1a7e1b27ab1411b8d51294c4b78ec549b033b87fa944e5"
+  }
+}
