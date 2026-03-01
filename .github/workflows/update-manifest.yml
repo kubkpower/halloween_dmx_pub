@@ -1,0 +1,138 @@
+name: Update Manifests
+
+# Regenerates firmware/<device>.manifest.json after each merge to main.
+# The manifest lists ALL published versions (newest first), with SHA-256
+# hashes computed from the actual binaries stored in the repository.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "firmware/**/*.bin"
+      - "spiffs/**/*.bin"
+
+jobs:
+  update-manifests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # full history so we can push back
+
+      - name: Generate manifests for all devices
+        run: |
+          python3 - << 'PYEOF'
+          import os, json, hashlib
+          from pathlib import Path
+
+          REPO     = "kubkpower/halloween_dmx_pub"
+          BASE_URL = f"https://raw.githubusercontent.com/{REPO}/main"
+
+          fw_root  = Path("firmware")
+          sp_root  = Path("spiffs")
+          cfg_root = Path("config")
+
+          def sha256(path):
+              h = hashlib.sha256()
+              with open(path, "rb") as f:
+                  for chunk in iter(lambda: f.read(65536), b""):
+                      h.update(chunk)
+              return h.hexdigest()
+
+          # Discover all device directories under firmware/
+          devices = sorted(
+              p.name for p in fw_root.iterdir()
+              if p.is_dir() and not p.suffix  # skip *.manifest.json files
+          )
+
+          for device in devices:
+              versions = []
+              dev_fw_dir = fw_root / device
+
+              # Sort version directories newest-first using semver tuple
+              def ver_key(p):
+                  name = p.name.lstrip("v")
+                  try:
+                      return tuple(int(x) for x in name.split("."))
+                  except ValueError:
+                      return (0, 0, 0)
+
+              vdirs = sorted(
+                  (p for p in dev_fw_dir.iterdir() if p.is_dir() and p.name.startswith("v")),
+                  key=ver_key,
+                  reverse=True
+              )
+
+              for vdir in vdirs:
+                  ver    = vdir.name.lstrip("v")
+                  fw_bin = vdir / "firmware.bin"
+                  sp_bin = sp_root / device / vdir.name / "spiffs.bin"
+
+                  if not fw_bin.exists():
+                      continue
+
+                  # Read per-version metadata (written by publish_to_pub.ps1)
+                  meta_file = vdir / "meta.json"
+                  meta      = {}
+                  if meta_file.exists():
+                      try:
+                          meta = json.loads(meta_file.read_text())
+                      except Exception:
+                          pass
+
+                  # Fallback: read latest notes/date from config/<device>/config.yaml
+                  if not meta:
+                      cfg_file = cfg_root / device / "config.yaml"
+                      if cfg_file.exists():
+                          for line in cfg_file.read_text().splitlines():
+                              if line.startswith("notes:"):
+                                  meta["notes"] = line.split(":", 1)[1].strip().strip('"')
+                              if line.startswith("built:"):
+                                  meta["date"]  = line.split(":", 1)[1].strip().strip('"')
+
+                  entry = {
+                      "version": ver,
+                      "date":    meta.get("date",  ""),
+                      "notes":   meta.get("notes", ""),
+                      "firmware": {
+                          "url":    f"{BASE_URL}/firmware/{device}/{vdir.name}/firmware.bin",
+                          "sha256": sha256(fw_bin)
+                      }
+                  }
+
+                  if sp_bin.exists():
+                      entry["spiffs"] = {
+                          "url":    f"{BASE_URL}/spiffs/{device}/{vdir.name}/spiffs.bin",
+                          "sha256": sha256(sp_bin)
+                      }
+
+                  versions.append(entry)
+
+              if not versions:
+                  print(f"  [skip] {device} — no firmware binaries found")
+                  continue
+
+              manifest = {
+                  "latest":   versions[0]["version"],
+                  "versions": versions
+              }
+
+              out_path = fw_root / f"{device}.manifest.json"
+              out_path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n")
+              print(f"  [OK] {out_path}: {len(versions)} version(s) — latest {manifest['latest']}")
+          PYEOF
+
+      - name: Commit & push updated manifests
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add firmware/*.manifest.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Manifests already up to date — nothing to commit."
+          else
+            git commit -m "chore: update manifests [skip ci]"
+            git push
+          fi
