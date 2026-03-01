@@ -3,7 +3,7 @@
 # Ne pas inclure de secrets (WiFi, tokens...) dans ce fichier.
 
 device: esp32-halloween-dmx
-firmware_version: "1.0.3"
+firmware_version: "1.0.4"
 built: "2026-03-01"
 notes: "Release automatique"
 
