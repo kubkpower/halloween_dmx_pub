@@ -1,0 +1,40 @@
+{
+  "latest": "1.0.4",
+  "versions": [
+    {
+      "version": "1.0.4",
+      "date": "2026-03-01",
+      "notes": "Release automatique",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.4/spiffs.bin",
+      "sha256": "b487c8ebd02a53f787b41ab1777909b1434f378436a3ded382af5ff10754ec70"
+    },
+    {
+      "version": "1.0.3",
+      "date": "2026-03-01",
+      "notes": "Release automatique",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.3/spiffs.bin",
+      "sha256": "b487c8ebd02a53f787b41ab1777909b1434f378436a3ded382af5ff10754ec70"
+    },
+    {
+      "version": "1.0.2",
+      "date": "",
+      "notes": "",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.2/spiffs.bin",
+      "sha256": "b487c8ebd02a53f787b41ab1777909b1434f378436a3ded382af5ff10754ec70"
+    },
+    {
+      "version": "1.0.1",
+      "date": "",
+      "notes": "",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.1/spiffs.bin",
+      "sha256": "c189f650f0f1f16cc36404d8409841cfb3f37f4e93a57d70ffa2358431f9de38"
+    },
+    {
+      "version": "1.0.0",
+      "date": "",
+      "notes": "",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.0/spiffs.bin",
+      "sha256": "e846269cfebf3651faa0db9bea9e76133ab1c62cd533ecb6ca9d56e1f99aa60e"
+    }
+  ]
+}
