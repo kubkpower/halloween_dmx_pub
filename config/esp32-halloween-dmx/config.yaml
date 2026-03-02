@@ -1,9 +1,9 @@
-# Halloween DMX - Device configuration
+﻿# Halloween DMX - Device configuration
 # Genere automatiquement par scripts/publish_to_pub.ps1
 # Ne pas inclure de secrets (WiFi, tokens...) dans ce fichier.
 
 device: esp32-halloween-dmx
-firmware_version: "1.0.6"
+firmware_version: "1.0.7"
 built: "2026-03-02"
 notes: "Release automatique"
 
