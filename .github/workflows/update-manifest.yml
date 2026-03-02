@@ -135,5 +135,6 @@ jobs:
             echo "Manifests already up to date."
           else
             git commit -m "chore: update manifests [skip ci]"
+            git pull --rebase origin main
             git push
           fi
