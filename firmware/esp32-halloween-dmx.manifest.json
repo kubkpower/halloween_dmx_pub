@@ -1,13 +1,6 @@
 {
-  "latest": "1.0.5",
+  "latest": "1.0.4",
   "versions": [
-    {
-      "version": "1.0.5",
-      "date": "2026-03-02",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.5/firmware.bin",
-      "sha256": "cff6f1d921d7337da0f3bf7842f4f041490b0d52d188c93819bf6d614403b64e"
-    },
     {
       "version": "1.0.4",
       "date": "2026-03-01",
