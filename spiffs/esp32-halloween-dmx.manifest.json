@@ -1,6 +1,13 @@
 {
-  "latest": "1.0.4",
+  "latest": "1.0.5",
   "versions": [
+    {
+      "version": "1.0.5",
+      "date": "2026-03-02",
+      "notes": "Release automatique",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.5/spiffs.bin",
+      "sha256": "037b0d85a052072f7b3c5c36f08d9c690247b002bf6808e4d885a755bf05dd82"
+    },
     {
       "version": "1.0.4",
       "date": "2026-03-01",
