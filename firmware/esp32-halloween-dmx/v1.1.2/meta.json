@@ -1,0 +1,11 @@
+{
+    "version": "1.1.2",
+    "date": "2026-03-03",
+    "notes": "Fix TDZ \u2014 OTA_BACKUP_KEY et _otaPolling d\u00e9clar\u00e9s avant les appels d'init, pollOtaStatus() op\u00e9rationnel",
+    "firmware": {
+        "sha256": "f0838b37ac041d4c4f9460544e03e567630249d87b649a73d3e9527d23515037"
+    },
+    "spiffs": {
+        "sha256": "e433cd913d161df235520da6925308ba8598cf140b6f4bed3a42568a4327bb06"
+    }
+}
