@@ -71,6 +71,41 @@ jobs:
                           date  = line.split(":", 1)[1].strip().strip('"')
               return date, notes
 
+          def select_versions(versions):
+              """Sélectionne au plus 6 versions à exposer dans le manifest :
+                 - les 4 builds les plus récents (toutes séries confondues),
+                 - le build le plus récent de la série mineure précédente
+                   (même major, minor = latest_minor - 1),
+                 - le build le plus récent de la série majeure précédente
+                   (major = latest_major - 1).
+              Les versions sont supposées triées par semver décroissant.
+              """
+              if len(versions) <= 4:
+                  return versions
+              vt0 = tuple(int(x) for x in versions[0]["version"].split("."))
+              latest_major, latest_minor = vt0[0], vt0[1]
+              selected  = list(versions[:4])
+              seen_vers = {v["version"] for v in selected}
+              # Dernière build de la série mineure précédente
+              if latest_minor > 0:
+                  for v in versions:
+                      vt = tuple(int(x) for x in v["version"].split("."))
+                      if vt[0] == latest_major and vt[1] < latest_minor:
+                          if v["version"] not in seen_vers:
+                              selected.append(v)
+                              seen_vers.add(v["version"])
+                          break
+              # Dernière build de la série majeure précédente
+              if latest_major > 0:
+                  for v in versions:
+                      vt = tuple(int(x) for x in v["version"].split("."))
+                      if vt[0] < latest_major:
+                          if v["version"] not in seen_vers:
+                              selected.append(v)
+                              seen_vers.add(v["version"])
+                          break
+              return selected
+
           devices = sorted(p.name for p in fw_root.iterdir() if p.is_dir())
 
           for device in devices:
@@ -108,6 +143,9 @@ jobs:
                           "url":     f"{BASE_URL}/spiffs/{device}/{vdir.name}/spiffs.bin",
                           "sha256":  sha256(sp_bin)
                       })
+
+              fw_versions = select_versions(fw_versions)
+              sp_versions = select_versions(sp_versions)
 
               if fw_versions:
                   fw_manifest = {"latest": fw_versions[0]["version"], "versions": fw_versions}
