@@ -1,0 +1,11 @@
+{
+    "version": "1.1.1",
+    "date": "2025-07-16",
+    "notes": "Fix OTA firmware polling — timeout 4 s sur /api/ota/update pour debloquer pollOtaStatus()",
+    "firmware": {
+        "sha256": "0ae4bf596fbf357b3732127ecd2cb6517dc6ce5d79458384172d67cae2fa8c0f"
+    },
+    "spiffs": {
+        "sha256": "a4682bb0b81c54fbeed350b00b87f54c7b10d3053e260afdf0f9a53c8246fbee"
+    }
+}
