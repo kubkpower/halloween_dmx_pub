@@ -1,6 +1,13 @@
 {
-  "latest": "1.1.0",
+  "latest": "1.1.1",
   "versions": [
+    {
+      "version": "1.1.1",
+      "date": "2025-07-16",
+      "notes": "Fix OTA firmware polling — timeout 4 s sur /api/ota/update pour debloquer pollOtaStatus()",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.1.1/spiffs.bin",
+      "sha256": "a4682bb0b81c54fbeed350b00b87f54c7b10d3053e260afdf0f9a53c8246fbee"
+    },
     {
       "version": "1.1.0",
       "date": "2026-03-03",
@@ -21,13 +28,6 @@
       "notes": "Release automatique",
       "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.15/spiffs.bin",
       "sha256": "aac12819304d55dca822ecb9c4aece53e4e8eb1fb1a6370edbb019d82d7a465e"
-    },
-    {
-      "version": "1.0.14",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.14/spiffs.bin",
-      "sha256": "eb9e10406369b738048bd232cb186669797557d7576ae0c8458bf87494c8c458"
     }
   ]
 }
