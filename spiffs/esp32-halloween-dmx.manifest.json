@@ -1,6 +1,13 @@
 {
-  "latest": "1.1.1",
+  "latest": "1.1.2",
   "versions": [
+    {
+      "version": "1.1.2",
+      "date": "2026-03-03",
+      "notes": "Fix TDZ — OTA_BACKUP_KEY et _otaPolling déclarés avant les appels d'init, pollOtaStatus() opérationnel",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.1.2/spiffs.bin",
+      "sha256": "e433cd913d161df235520da6925308ba8598cf140b6f4bed3a42568a4327bb06"
+    },
     {
       "version": "1.1.1",
       "date": "2025-07-16",
@@ -21,13 +28,6 @@
       "notes": "Release automatique",
       "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.16/spiffs.bin",
       "sha256": "ba1af43e08049274b39084fb2adc81479010577171714549084c13fbbd224e59"
-    },
-    {
-      "version": "1.0.15",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.0.15/spiffs.bin",
-      "sha256": "aac12819304d55dca822ecb9c4aece53e4e8eb1fb1a6370edbb019d82d7a465e"
     }
   ]
 }
