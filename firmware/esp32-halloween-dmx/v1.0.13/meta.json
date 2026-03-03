@@ -3,7 +3,7 @@
     "date": "2026-03-03",
     "notes": "Release automatique",
     "firmware": {
-        "sha256": "87e7d6a867e80ef83a1baacf3552f08951dd9ecf603d2f2625a8851196d1b2f8"
+        "sha256": "28b23c7867e93fe60175549bee171a23a276a66625afdf9cfa1dd1f70b4603c6"
     },
     "spiffs": {
         "sha256": "3449b451dce559b9d1998f861d6586eb17f3e769d5bf3830771ef8be700d5e55"
