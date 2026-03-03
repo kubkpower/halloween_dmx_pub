@@ -1,0 +1,11 @@
+{
+    "version": "1.1.4",
+    "date": "2026-03-03",
+    "notes": "Fix export config : streaming AsyncResponseStream (plus d'allocation monolithique)",
+    "firmware": {
+        "sha256": "0410aef3b47504b999720efc39c4898a1cdbc3c70d9b1d3f4f1d24032dd7add6"
+    },
+    "spiffs": {
+        "sha256": "ea021cdd75590b0f3001cf6c34a7247fe27f237f6ac9d70048609c5233d1edad"
+    }
+}
