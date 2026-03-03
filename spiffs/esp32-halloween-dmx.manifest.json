@@ -1,6 +1,13 @@
 {
-  "latest": "1.1.3",
+  "latest": "1.1.4",
   "versions": [
+    {
+      "version": "1.1.4",
+      "date": "2026-03-03",
+      "notes": "Fix export config : streaming AsyncResponseStream (plus d'allocation monolithique)",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.1.4/spiffs.bin",
+      "sha256": "ea021cdd75590b0f3001cf6c34a7247fe27f237f6ac9d70048609c5233d1edad"
+    },
     {
       "version": "1.1.3",
       "date": "2026-03-03",
@@ -21,13 +28,6 @@
       "notes": "Fix OTA firmware polling — timeout 4 s sur /api/ota/update pour debloquer pollOtaStatus()",
       "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.1.1/spiffs.bin",
       "sha256": "a4682bb0b81c54fbeed350b00b87f54c7b10d3053e260afdf0f9a53c8246fbee"
-    },
-    {
-      "version": "1.1.0",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/spiffs/esp32-halloween-dmx/v1.1.0/spiffs.bin",
-      "sha256": "980030463ecc87c233d34122e381d207b466e88846743b45be47bc8423e3cdbf"
     },
     {
       "version": "1.0.16",
