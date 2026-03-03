@@ -1,12 +1,19 @@
 {
-  "latest": "1.0.13",
+  "latest": "1.0.14",
   "versions": [
+    {
+      "version": "1.0.14",
+      "date": "2026-03-03",
+      "notes": "Release automatique",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.14/firmware.bin",
+      "sha256": "682959f955a59f9688a77b1bbd276fe64ab08f208d3a62120d6a340d11d0bcee"
+    },
     {
       "version": "1.0.13",
       "date": "2026-03-03",
       "notes": "Release automatique",
       "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.13/firmware.bin",
-      "sha256": "87e7d6a867e80ef83a1baacf3552f08951dd9ecf603d2f2625a8851196d1b2f8"
+      "sha256": "28b23c7867e93fe60175549bee171a23a276a66625afdf9cfa1dd1f70b4603c6"
     },
     {
       "version": "1.0.12",
@@ -21,83 +28,6 @@
       "notes": "Release automatique",
       "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.11/firmware.bin",
       "sha256": "d933081aa11e86af39b59a359eb2a4432d3197c6c63d0976d619d457b906624a"
-    },
-    {
-      "version": "1.0.10",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.10/firmware.bin",
-      "sha256": "1e9283ebe1d90cddb2254cfdda32f84d3f8228512e80d793e84885ede535e9e6"
-    },
-    {
-      "version": "1.0.9",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.9/firmware.bin",
-      "sha256": "3ed75d7f315c16bb2b2c2dc0ba45129a2b117ffd039544d5b4aa9fa489422a20"
-    },
-    {
-      "version": "1.0.8",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.8/firmware.bin",
-      "sha256": "60d4a986b6ab5297da2b06374d6ecbcc7d8e1ba388a707ac7e7328b0e94a1608"
-    },
-    {
-      "version": "1.0.7",
-      "date": "2026-03-02",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.7/firmware.bin",
-      "sha256": "01a8cca12111c98b07c10c8cbd4bb980ba36476b3aaed97253e02e8dc60ad0f2"
-    },
-    {
-      "version": "1.0.6",
-      "date": "2026-03-02",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.6/firmware.bin",
-      "sha256": "a9484aca406db58aac80b039d4c6d74089c2ecc1edfa920bbc3a03a093b43aab"
-    },
-    {
-      "version": "1.0.5",
-      "date": "2026-03-02",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.5/firmware.bin",
-      "sha256": "cff6f1d921d7337da0f3bf7842f4f041490b0d52d188c93819bf6d614403b64e"
-    },
-    {
-      "version": "1.0.4",
-      "date": "2026-03-01",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.4/firmware.bin",
-      "sha256": "ff6816d11adcc63025cb962ec14b77ab9bbd85edd8b35cbb4b3fb5281e5f1503"
-    },
-    {
-      "version": "1.0.3",
-      "date": "2026-03-01",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.3/firmware.bin",
-      "sha256": "4deff55dd9fc75d209627f2541a128b01d299eea06ebecd02ab79570c35bd81c"
-    },
-    {
-      "version": "1.0.2",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.2/firmware.bin",
-      "sha256": "8f8965d0dbc8696c0c8e879999749e68c0961f1080d9f9f1f83fd0d62f591543"
-    },
-    {
-      "version": "1.0.1",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.1/firmware.bin",
-      "sha256": "76a3a23f67b9088cff941c3b0cde38197792bd67fd27cca5444b929547fba03b"
-    },
-    {
-      "version": "1.0.0",
-      "date": "2026-03-03",
-      "notes": "Release automatique",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.0.0/firmware.bin",
-      "sha256": "a3d986307556816aee190abeb54eba70bfdb19bd24267a61eff73544e46143f9"
     }
   ]
 }
