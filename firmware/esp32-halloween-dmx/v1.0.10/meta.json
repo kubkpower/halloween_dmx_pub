@@ -1,0 +1,11 @@
+﻿{
+    "version":  "1.0.10",
+    "date":  "2026-03-03",
+    "notes":  "Release automatique",
+    "firmware":  {
+                     "sha256":  "1e9283ebe1d90cddb2254cfdda32f84d3f8228512e80d793e84885ede535e9e6"
+                 },
+    "spiffs":  {
+                   "sha256":  "2e6512a72304dc95f2dfe1bdbc38382e6f23f28e858a00dfb0bf594e23aa0985"
+               }
+}
