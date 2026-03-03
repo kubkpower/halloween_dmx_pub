@@ -1,6 +1,13 @@
 {
-  "latest": "1.1.4",
+  "latest": "1.1.5",
   "versions": [
+    {
+      "version": "1.1.5",
+      "date": "2026-03-03",
+      "notes": "Release automatique",
+      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.1.5/firmware.bin",
+      "sha256": "55ccf81a7f04a2e972bee7b146b3bd9a2f89cd9ae4caf2bbb7e3b54faa034be9"
+    },
     {
       "version": "1.1.4",
       "date": "2026-03-03",
@@ -21,13 +28,6 @@
       "notes": "Fix TDZ — OTA_BACKUP_KEY et _otaPolling déclarés avant les appels d'init, pollOtaStatus() opérationnel",
       "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.1.2/firmware.bin",
       "sha256": "f0838b37ac041d4c4f9460544e03e567630249d87b649a73d3e9527d23515037"
-    },
-    {
-      "version": "1.1.1",
-      "date": "2025-07-16",
-      "notes": "Fix OTA firmware polling — timeout 4 s sur /api/ota/update pour debloquer pollOtaStatus()",
-      "url": "https://raw.githubusercontent.com/kubkpower/halloween_dmx_pub/main/firmware/esp32-halloween-dmx/v1.1.1/firmware.bin",
-      "sha256": "0ae4bf596fbf357b3732127ecd2cb6517dc6ce5d79458384172d67cae2fa8c0f"
     },
     {
       "version": "1.0.16",
