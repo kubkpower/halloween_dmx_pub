@@ -1,0 +1,36 @@
+schema_version: 2
+manufacturer: Custom
+model: SMOKE-1CH
+category: SMOKE
+
+notes: "Custom smoke machine, 1 DMX channel driving a relay (pump ON/OFF). No heater control, no fan, no variable output."
+
+physical:
+  connector: xlr3
+
+modes:
+  # ============================================================
+  # 1 CHANNEL — CH1 Fog pump relay (binary)
+  # ============================================================
+  - name: "1ch"
+    channel_count: 1
+    parameters:
+
+      - id: fog
+        label: Fog
+        type: enum
+        attribute: Fog
+        snap: true
+        group: Effects
+        dmx_offset: 0       # DMX ch 1
+        range_min: 0
+        range_max: 255
+        default: 0          # relay open at boot / on DMX loss = pump OFF
+        reserved: false
+        capabilities:
+          - name: "Off"
+            dmx_min: 0
+            dmx_max: 127
+          - name: "On"
+            dmx_min: 128
+            dmx_max: 255

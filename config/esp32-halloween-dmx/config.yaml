@@ -10,3 +10,4 @@ notes: "Release automatique"
 fixture_profiles:
   - name: beamz_bs336
   - name: cosmos_fp1210
+  - name: custom_smoke_1ch
